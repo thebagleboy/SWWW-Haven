@@ -1,0 +1,39 @@
+Table Requests {
+  id integer [primary key]
+  request_date datetime
+}
+
+Table Wallpapers {
+  id varchar [primary key]
+  category varchar
+  purity varchar
+  path varchar
+  resolution_x integer
+  resolution_y integer
+  ratio varchar
+  created_at datetime
+  downloaded_at datetime
+}
+
+Table Wallpaper_Usage {
+  id varchar [primary key]
+  use_count integer
+  last_usage datetime
+}
+Ref: Wallpaper_Usage.id - Wallpapers.id
+
+Table Wallpaper_Colours {
+  id varchar [ref: > Wallpapers.id]
+  colour varchar
+  indexes {
+    (id, colour) [unique]
+  }
+}
+
+Table Wallpaper_Discoveries {
+  request integer [ref: > Requests.id]
+  wallpaper varchar [ref: > Wallpapers.id]
+  indexes {
+    (request, wallpaper) [unique]
+  }
+}
