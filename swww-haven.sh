@@ -3,8 +3,8 @@
 # Version Data
 VERSION_MAJOR=0
 VERSION_MINOR=1
-VERSION_PATCH=1
-VERSION_BUILD=1
+VERSION_PATCH=2
+VERSION_BUILD=2
 
 # Dependencies check
 if ! command -v curl &> /dev/null
@@ -277,6 +277,21 @@ parse_args() {
     done
 }
 
+fetch_wallpaper() {
+  local res
+  if false && $SQLITE3_ENABLED; then
+    res="TODO"
+  else
+    res=$(ls $DOWNLOAD_DIR | xargs -n1 | grep -E .png$ | sort -R | head -1)
+  fi
+  echo $res
+}
+
+set_wallpaper() {
+  wallpaper=$(fetch_wallpaper)
+  swww img "$DOWNLOAD_DIR/$wallpaper"
+}
+
 # Main function
 main() {
     parse_args "$@"
@@ -316,7 +331,7 @@ main() {
             process_response "$response" true
             ;;
         set)
-            echo "TODO"
+	    set_wallpaper
             ;;
         *)
             error "Unknown action: $ACTION"
@@ -330,4 +345,5 @@ main() {
 
 # Execute main function
 main "$@"
+
 
