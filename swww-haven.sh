@@ -4,7 +4,7 @@
 VERSION_MAJOR=0
 VERSION_MINOR=1
 VERSION_PATCH=2
-VERSION_BUILD=2
+VERSION_BUILD=3
 
 # Dependencies check
 if ! command -v curl &> /dev/null
