@@ -107,7 +107,7 @@ If you have any questions or comments, please contact <aburgecc@ucc.asn.au>.
 - [ ] Add an option to select a wallpaper based upon a colour theme
 - [ ] Connect to the bus
 - [ ] Add a method to configure the wallpaper storage directory
-- [ ] Integrate with Waybar or potentially other Bar programs depending what I feel like using/learning
+- [-] Integrate with Waybar or potentially other Bar programs depending what I feel like using/learning
 - [ ] Fix up debug logs
 - [ ] Add a connection to create log files
 - [ ] ?????????
